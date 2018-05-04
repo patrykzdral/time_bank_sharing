@@ -16,8 +16,11 @@ import javax.jws.soap.SOAPBinding;
 import javax.persistence.criteria.CriteriaBuilder;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
@@ -71,17 +74,22 @@ public class OfferController {
             e.printStackTrace();
         }
         Gson gson = new Gson();
-        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-        java.util.Date parsed = null;
-        java.sql.Date sqlFrom =null;
-        java.sql.Date sqlTo =null;
+        DateTimeFormatter format = DateTimeFormatter.ISO_DATE_TIME;
+        //SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //java.util parsed = null;
+        java.sql.Timestamp sqlFrom =null;
+        java.sql.Timestamp sqlTo =null;
         try {
-            parsed = format.parse((String)json.get("dateFrom"));
-            sqlFrom = new java.sql.Date(parsed.getTime());
-            parsed =  format.parse((String)json.get("dateTo"));
-            sqlTo = new java.sql.Date(parsed.getTime());
+            LocalDateTime dateFrom = LocalDateTime.parse((String)json.get("dateFrom"), format);
+            sqlFrom = Timestamp.valueOf(dateFrom);
+            //parsed = format.parse((String)json.get("dateFrom"));
+            //sqlFrom = new java.sql.Timestamp(parsed.getTime());
+            LocalDateTime dateTo = LocalDateTime.parse((String)json.get("dateTo"), format);
+            sqlTo = Timestamp.valueOf(dateTo);
+            //parsed =  format.parse((String)json.get("dateTo"));
+            //sqlTo = new java.sql.Timestamp(parsed.getTime());
 
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

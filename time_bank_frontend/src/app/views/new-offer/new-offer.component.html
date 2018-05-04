@@ -12,13 +12,21 @@
         <input class="form-control" [(ngModel)]="offer.description" name="description-input" id="description-input">
       </div>
       <div class="form-group" id="date_from">
-        <label class="control-label" for="date_from">Data rozpoczęcia</label>
-        <input type="date" [ngModel] ="offer.dateFrom | date:'yyyy-MM-dd'" (ngModelChange)="offer.dateFrom = $event" name="dateFrom-input">
+        <label>
+          Data rozpoczęcia:
+          <input   [owlDateTimeTrigger]="dt" [owlDateTime]="dt"  (ngModelChange)="offer.dateFrom = $event" [ngModel] ="offer.dateFrom "  name="dateFrom-input" >
+          <owl-date-time #dt></owl-date-time>
+        </label>
       </div>
       <div class="form-group" id="date_to">
-        <label class="control-label" for="date_to">Data zakończenia</label>
-        <input type="date" [ngModel] ="offer.dateTo | date:'yyyy-MM-dd'" (ngModelChange)="offer.dateTo = $event" name="dateTo-input">
-        <h3 class="text-center">Lokalizacja </h3></div>
+        <label>
+          Data zakończenia:
+          <input   [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2"  (ngModelChange)="offer.dateTo = $event" [ngModel] ="offer.dateTo" name="dateTo-input" >
+          <owl-date-time #dt2></owl-date-time>
+        </label>
+
+      </div>
+        <h3 class="text-center">Lokalizacja </h3>
       <div class="form-group">
         <label class="control-label" for="street-input">Ulica </label>
         <input class="form-control" [(ngModel)]="offer.address" type="text" name="street-input" id="street-input">

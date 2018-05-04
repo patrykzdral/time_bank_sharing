@@ -1,6 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {AgmCoreModule} from '@agm/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
@@ -15,7 +13,9 @@ import { StatisticsComponent } from './views/statistics/statistics.component';
 import {OfferService} from "./services/offer/offer.service";
 import { ReceiveOfferComponent } from './views/receive-offer/receive-offer.component';
 import {Globals} from "./logged_user/logged_user";
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
     {
@@ -53,12 +53,16 @@ const appRoutes: Routes = [
         LoginComponent,
         NewOfferComponent,
         StatisticsComponent,
-        ReceiveOfferComponent
+        ReceiveOfferComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
+        BrowserModule,
+        BrowserAnimationsModule,
         RouterModule.forRoot(
             appRoutes,
             {enableTracing: true} // <-- debugging purposes only
