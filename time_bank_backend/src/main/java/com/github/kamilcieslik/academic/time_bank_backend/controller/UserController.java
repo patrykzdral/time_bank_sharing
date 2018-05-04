@@ -17,7 +17,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "find/{id}", produces = {APPLICATION_JSON_VALUE})
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = {APPLICATION_JSON_VALUE})
     public User user(@PathVariable Integer id) {
         return userService.find(id);
     }
@@ -59,8 +59,15 @@ public class UserController {
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE}, value = "/delete/{id}",
             produces = {APPLICATION_JSON_VALUE})
+
     public void delete(@PathVariable Integer id) {
         User user = userService.find(id);
         userService.delete(user);
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public User save(@RequestBody User contact) {
+        userService.save(contact);
+        return contact;
     }
 }

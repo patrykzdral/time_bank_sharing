@@ -1,5 +1,8 @@
 package com.github.kamilcieslik.academic.time_bank_backend.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -55,6 +58,7 @@ public class User {
             CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @XmlElementWrapper(name = "times_taken_from_others")
     @XmlElement(name = "given_time_from_other")
+
     private List<Offer> timesTakenFromOthers;
 
     public User() {

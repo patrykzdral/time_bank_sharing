@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from '../../dto/user.model';
 import {HttpClient} from '@angular/common/http';
+import {get} from "http";
 
 @Injectable()
 export class UserService {
@@ -49,5 +50,13 @@ export class UserService {
                 });
         });
         return promise;
+    }
+    getUser(login: string, password:string){
+        return this.http.get<User>('/users/login', {
+            params: {
+                login: login,
+                password: password
+            }
+        })
     }
 }
