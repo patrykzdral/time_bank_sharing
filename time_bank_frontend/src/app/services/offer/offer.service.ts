@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Offer} from "../../dto/offer.model";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class OfferService {
@@ -21,6 +22,9 @@ export class OfferService {
                 });
         });
         return promise;
+    }
+    getActiveOffers() : Observable<any>{
+        return this.http.get('/offers/active');
     }
 
 }

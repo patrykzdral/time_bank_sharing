@@ -50,6 +50,7 @@ public class User {
             CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @XmlElementWrapper(name = "given_times_to_others")
     @XmlElement(name = "given_time_to_other")
+    @JsonManagedReference
     private List<Offer> givenTimesToOthers;
 
     @OneToMany(mappedBy = "receiver", cascade = {CascadeType.DETACH,
@@ -58,7 +59,7 @@ public class User {
             CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @XmlElementWrapper(name = "times_taken_from_others")
     @XmlElement(name = "given_time_from_other")
-
+    @JsonManagedReference
     private List<Offer> timesTakenFromOthers;
 
     public User() {

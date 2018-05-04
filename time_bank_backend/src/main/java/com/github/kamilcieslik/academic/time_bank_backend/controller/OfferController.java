@@ -18,6 +18,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.stream.StreamSupport;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -34,24 +36,29 @@ public class OfferController {
         this.userService = userService;
     }
 
-    /*
-    @RequestMapping(method = RequestMethod.POST , consumes = {APPLICATION_JSON_VALUE})
-    public Offer save(@RequestBody Offer offer) {
-        User user =null;
-        System.out.println(stringToParse);
-        JSONObject obj=null;
-        if(obj.get("giver")!=null){
-            user = userService.find((int)obj.get("giver"));
-            offer.setGiver(user);
-        }
-        if(obj.get("receiver")!=null){
-            user = userService.find((int)obj.get("giver"));
-            offer.setReceiver(user);
-        }
-        offerService.save(offer);
-        return offer;
+
+    @RequestMapping(method = RequestMethod.GET,  value = "/active")
+    public Iterable<Offer> getActiveOffers() {
+
+        Iterable<Offer> offers=  offerService.findAll();
+        return () -> StreamSupport.stream(offers.spliterator(), false)
+                .filter(text -> text.getGiver()==null||text.getReceiver()==null)
+                .iterator();
     }
-    */
+
+    @RequestMapping(method=RequestMethod.PUT, value="/{id}")
+    public Offer update(@PathVariable String id, @RequestBody String userId) {
+        Offer o = offerService.find(Integer.parseInt(id));
+        User user= userService.find(Integer.parseInt(userId));
+         if(o.getReceiver()==null)  {
+           o.setReceiver(user);
+         }
+         if(o.getGiver()==null) {
+             o.setGiver(user);
+         }
+        offerService.save(o);
+        return o;
+    }
 
     @RequestMapping(method = RequestMethod.POST,  consumes = {APPLICATION_JSON_VALUE})
     public JSONObject saveOffer(@RequestBody String stringToParse){

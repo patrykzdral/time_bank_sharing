@@ -1,4 +1,24 @@
 <app-navbar activeMenu="receive-offer"></app-navbar>
-<p>
-  receive-offer works!
-</p>
+
+<div class="container">
+  <h1>Events List</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>name</th>
+      <th>dateFrom</th>
+      <th>dateTo</th>
+      <th>description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let offer of offers">
+      <td>{{ offer.name}}</td>
+      <td>{{ offer.dateFrom }}</td>
+      <td>{{ offer.dateTo }}</td>
+      <td>{{ offer.description }}</td>
+      <td><button class="btn btn-danger" (click)="enroll(offer.id)"> zapisz się </button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
