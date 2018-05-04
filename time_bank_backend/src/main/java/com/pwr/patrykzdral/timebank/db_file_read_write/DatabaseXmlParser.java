@@ -1,4 +1,4 @@
-package com.github.kamilcieslik.academic.time_bank_backend.db_file_read_write;
+package com.pwr.patrykzdral.timebank.db_file_read_write;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

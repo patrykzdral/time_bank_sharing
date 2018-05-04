@@ -1,4 +1,4 @@
-package com.github.kamilcieslik.academic.time_bank_backend.database.service;
+package com.pwr.patrykzdral.timebank.database.service;
 
 import java.util.List;
 

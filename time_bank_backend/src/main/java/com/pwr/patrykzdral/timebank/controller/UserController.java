@@ -1,7 +1,7 @@
-package com.github.kamilcieslik.academic.time_bank_backend.controller;
+package com.pwr.patrykzdral.timebank.controller;
 
-import com.github.kamilcieslik.academic.time_bank_backend.database.entity.User;
-import com.github.kamilcieslik.academic.time_bank_backend.database.service.UserService;
+import com.pwr.patrykzdral.timebank.database.entity.User;
+import com.pwr.patrykzdral.timebank.database.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

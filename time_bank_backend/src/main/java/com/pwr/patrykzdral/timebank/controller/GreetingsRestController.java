@@ -1,4 +1,4 @@
-package com.github.kamilcieslik.academic.time_bank_backend.controller;
+package com.pwr.patrykzdral.timebank.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

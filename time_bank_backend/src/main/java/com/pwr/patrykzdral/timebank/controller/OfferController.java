@@ -1,9 +1,10 @@
-package com.github.kamilcieslik.academic.time_bank_backend.controller;
+package com.pwr.patrykzdral.timebank.controller;
 
-import com.github.kamilcieslik.academic.time_bank_backend.database.entity.Offer;
-import com.github.kamilcieslik.academic.time_bank_backend.database.entity.User;
-import com.github.kamilcieslik.academic.time_bank_backend.database.service.OfferService;
-import com.github.kamilcieslik.academic.time_bank_backend.database.service.UserService;
+import com.pwr.patrykzdral.timebank.database.entity.Offer;
+import com.pwr.patrykzdral.timebank.database.entity.Statistics;
+import com.pwr.patrykzdral.timebank.database.entity.User;
+import com.pwr.patrykzdral.timebank.database.service.OfferService;
+import com.pwr.patrykzdral.timebank.database.service.UserService;
 
 import com.google.gson.Gson;
 import org.json.simple.*;
@@ -12,16 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import static java.lang.Math.toIntExact;
 
-import javax.jws.soap.SOAPBinding;
-import javax.persistence.criteria.CriteriaBuilder;
-
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.stream.StreamSupport;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -108,6 +102,16 @@ public class OfferController {
         offerService.save(offer);
 
         return json;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/statistics/{id}", produces = {APPLICATION_JSON_VALUE})
+    public Statistics user(@PathVariable Integer id) {
+        System.out.println(userService.find(id).getLogin());
+        System.out.println(userService.find(id).getPassword());
+        System.out.println(userService.find(id).getEmail());
+        System.out.println(userService.find(id).getId());
+
+        return offerService.getUserStatistics(userService.find(id));
     }
 
 }

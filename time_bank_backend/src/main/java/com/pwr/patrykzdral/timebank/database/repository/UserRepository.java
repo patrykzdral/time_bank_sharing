@@ -1,6 +1,6 @@
-package com.github.kamilcieslik.academic.time_bank_backend.database.repository;
+package com.pwr.patrykzdral.timebank.database.repository;
 
-import com.github.kamilcieslik.academic.time_bank_backend.database.entity.User;
+import com.pwr.patrykzdral.timebank.database.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Integer> {

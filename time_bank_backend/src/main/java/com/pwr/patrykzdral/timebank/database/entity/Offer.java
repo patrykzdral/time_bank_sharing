@@ -1,8 +1,6 @@
-package com.github.kamilcieslik.academic.time_bank_backend.database.entity;
+package com.pwr.patrykzdral.timebank.database.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;

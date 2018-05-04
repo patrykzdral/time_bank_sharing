@@ -1,8 +1,37 @@
-<p>
-  statistics works!
-</p>
-<label>
-  Date Time:
-  <input [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
-  <owl-date-time #dt></owl-date-time>
-</label>
+<app-navbar activeMenu="statistics"></app-navbar>
+
+<div class="container">
+  <h1>Statistics List</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>l.danych ofert</th>
+      <th>l.wziętych ofert</th>
+      <th>l.danych dni</th>
+      <th>l.danych godzin</th>
+      <th>l.danych minut</th>
+      <th>l.danych sekund</th>
+      <th>l.wziętych dni</th>
+      <th>l.wziętych godzin</th>
+      <th>l.wziętych minut</th>
+      <th>l.wziętych sekund</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ statistics.numberOfGivenOffers}}</td>
+      <td>{{ statistics.numberOfTakenOffers}}</td>
+      <td>{{ statistics.givenTimeDays}}</td>
+      <td>{{ statistics.givenTimeHours}}</td>
+      <td>{{ statistics.givenTimeMinutes}}</td>
+      <td>{{ statistics.givenTimeSeconds}}</td>
+      <td>{{ statistics.takenTimeDays}}</td>
+      <td>{{ statistics.takenTimeHours}}</td>
+      <td>{{ statistics.takenTimeMinutes}}</td>
+      <td>{{ statistics.takenTimeSeconds}}</td>
+
+    </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,4 @@
-package com.github.kamilcieslik.academic.time_bank_backend;
+package com.pwr.patrykzdral.timebank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

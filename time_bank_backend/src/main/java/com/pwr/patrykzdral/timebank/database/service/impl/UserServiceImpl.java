@@ -1,8 +1,8 @@
-package com.github.kamilcieslik.academic.time_bank_backend.database.service.impl;
+package com.pwr.patrykzdral.timebank.database.service.impl;
 
-import com.github.kamilcieslik.academic.time_bank_backend.database.entity.User;
-import com.github.kamilcieslik.academic.time_bank_backend.database.repository.UserRepository;
-import com.github.kamilcieslik.academic.time_bank_backend.database.service.UserService;
+import com.pwr.patrykzdral.timebank.database.entity.User;
+import com.pwr.patrykzdral.timebank.database.repository.UserRepository;
+import com.pwr.patrykzdral.timebank.database.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

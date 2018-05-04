@@ -1,7 +1,7 @@
-package com.github.kamilcieslik.academic.time_bank_backend.db_file_read_write;
+package com.pwr.patrykzdral.timebank.db_file_read_write;
 
-import com.github.kamilcieslik.academic.time_bank_backend.database.entity.Offer;
-import com.github.kamilcieslik.academic.time_bank_backend.database.entity.User;
+import com.pwr.patrykzdral.timebank.database.entity.Offer;
+import com.pwr.patrykzdral.timebank.database.entity.User;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
