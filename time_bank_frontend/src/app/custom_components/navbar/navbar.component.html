@@ -1,8 +1,7 @@
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand navbar-link"><img src="../../../assets/img/app_logo_mini.png" id="logo"><strong
-                    id="logo_name">{{currentModuleName}}</strong></a>
+           <a><strong id="logo_name">{{currentModuleName}}</strong></a>
             <button [ngStyle]="{'background-color' : (isCollapsed === true) ? '#2c827f' : '#125553'}"
                     class="navbar-toggle navbar-collapse btn" (click)="isCollapsed=!isCollapsed"><span
                     class="sr-only">Toggle navigation</span><span class="navcol-1"></span><span

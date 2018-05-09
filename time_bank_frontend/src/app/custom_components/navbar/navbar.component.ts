@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 export class NavbarComponent implements OnInit {
     @Input() activeMenu: string;
     isCollapsed: boolean;
-    currentModuleName = "Let's come out";
+    currentModuleName = "Time bank";
 
     constructor(private router: Router) {
         this.isCollapsed = true;
