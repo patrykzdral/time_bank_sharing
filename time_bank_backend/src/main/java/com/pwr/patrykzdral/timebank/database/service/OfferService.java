@@ -7,4 +7,5 @@ import com.pwr.patrykzdral.timebank.database.entity.User;
 public interface OfferService extends CRUDService<Offer> {
     Statistics getUserStatistics(User user);
 
+
 }

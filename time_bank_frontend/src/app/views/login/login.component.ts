@@ -24,10 +24,6 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.userService.loginUser(this.login, this.password).then(
         () => {
-            console.log('chuj');
-            console.log('object is ', this.userService.user);
-            console.log('dupa');
-
             this.router.navigateByUrl('/new-offer');
         }, () => {
             this.router.navigateByUrl(''); });
